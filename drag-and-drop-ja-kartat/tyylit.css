@@ -1,0 +1,98 @@
+body {
+  margin: 0px;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  padding: 0px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.map {
+  width: 100%;
+  height: calc(50vh - 4em);
+  grid-column: 1 / 5;
+  grid-row: 1;
+}
+
+h3 {
+  margin: 0px;
+  height: 2em;
+}
+
+.otsikkoJoukkueet {
+  text-align: center;
+  grid-column: 1 / 2;
+  grid-row: 2;
+}
+
+.otsikkoKartalla {
+  text-align: center;
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+
+.otsikkoRastit {
+  text-align: center;
+  grid-column: 4 / 5;
+  grid-row: 2;
+}
+
+ul {
+  min-height: calc(50vh - 2.5em);
+  margin-top: 0px;
+  margin-left: 1em;
+  padding: 0px;
+  padding-bottom: 1em;
+  border: 1px solid;
+}
+
+li {
+  list-style: none;
+  margin: 0px;
+  width: 100%;
+}
+
+.joukkuelistaus {
+  grid-column: 1 / 2;
+  grid-row: 3;
+}
+
+.kartallalistaus {
+  height: calc(50vh - 2.5em);
+  position: relative;
+  grid-column: 2 / 4;
+  grid-row: 3;
+}
+
+.kartallalistaus > li {
+  position: absolute;
+}
+
+.rastitlistaus {
+  height: fit-content;
+  column-count: 4;
+  column-gap: 1em;
+  grid-column: 4 / 5;
+  grid-row: 3;
+}
+
+.leimaukset {
+  min-height: auto;
+  border: 0;
+  padding-left: 0.5em;
+  background: linear-gradient(to bottom,  rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
+  margin: 0;
+}
+
+summary {
+  padding-left: 0.1em;
+}
+
+.tooltip {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  box-shadow: none;
+}

@@ -1,0 +1,67 @@
+form {
+  margin-bottom: 1.5em;
+}
+
+#nimi {
+  margin-bottom: 2em;
+}
+
+form > fieldset {
+  max-width: 25em;
+  min-width: 20em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+label {
+  flex: 25em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+label > input {
+  min-width: 13em;
+  float: right;
+  margin-left: 0.25em;
+  align-self: flex-end;
+}
+
+#leimaustapadiv {
+  display: flex;
+  flex: 25em;
+  margin-bottom: 0.5em;
+}
+
+#leimaustapa {
+  flex-grow: 1;
+  margin-bottom: 0.5em;
+}
+
+#kaikkileimaustavat > label {
+  display: block;
+}
+
+#kaikkileimaustavat > label > input {
+  min-width: 0em;
+  margin-left: 0.5em;
+  display: inline;
+}
+
+#sarjadiv {
+  display: flex;
+  flex: 25em;
+}
+
+#sarja {
+  flex-grow: 1;
+}
+
+#sarjat > label {
+  display: block;
+}
+
+#sarjat > label > input {
+  min-width: 0em;
+  margin-left: 0.5em;
+  display: inline;
+}

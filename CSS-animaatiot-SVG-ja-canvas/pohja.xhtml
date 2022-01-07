@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fi" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi">
+    <head><!-- head-osan sisältöä ei saa muuttaa -->
+        <script src="https://appro.mit.jyu.fi/tiea2120/vt/vt4/2021/kalevala.js"></script>
+        <script src="vt4.js"></script>
+        <link rel="StyleSheet" href="tyylit.css" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8"/>
+        <title>VT4 - 2021 syksy</title>
+    </head>
+    <body>
+			<img id="pingviini1" src="https://appro.mit.jyu.fi/tiea2120/vt/vt4/penguin.png" alt="Pingiivini" title="pingviini"/>
+			<img id="pingviini2" src="https://appro.mit.jyu.fi/tiea2120/vt/vt4/penguin.png" alt="Pingiivini" title="pingviini"/>
+			<svg id="gradientit" width="0%" height="0%" xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<defs id="defs">
+				</defs>
+			</svg>
+			<img id="pollo" src="http://appro.mit.jyu.fi/cgi-bin/tiea2120/kuva.cgi" alt="Pollo" title="pollo"/>
+<!-- Tästä eteenpäin sivun sisältöä ei saa muuttaa -->
+<!-- Sivun validoinnin voit tehdä milloin tahansa näppäinyhdistelmällä CTRL+ALT+V -->
+<script src="https://appro.mit.jyu.fi/tools/htmlinspector/html-inspector.js"></script>
+<script src="https://appro.mit.jyu.fi/tools/validator/validator.user.js"></script>
+<script src="https://appro.mit.jyu.fi/tools/jshint/jshint.js"></script>
+<script src="https://appro.mit.jyu.fi/tools/jshint/jshint.user.js"></script>
+<script>
+//<![CDATA[
+// seurataan DOM-puuhun tehtyjä muutoksia. Validoidaan dokumentti, jos DOM-puuta
+// muutetaan. Tämä hidastaa merkittävästi sovellusta, mutta auttaa bongaamaan
+// epävalidit muutokset sivun rakenteeseen
+// kts. https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
+function observe() {
+	// asetukset
+	const config = { attributes: true, childList: true, subtree: true };
+        // ajastuksen apumuuttuja
+        let timer = true;
+
+	// seuraava funktio suoritetaan, jos dokumentin sisältö muuttuu
+        function validointi() {
+		HTMLInspector.inspect( {
+        		domRoot: "html",
+        		useRules: null,
+		        excludeRules: ["script-placement","unnecessary-elements"],
+        		excludeElements: "svg",
+        		excludeSubTrees: ["svg","iframe"],
+        		onComplete: function(errors) {
+                		errors.forEach(function(error) {
+                        	console.warn(error.message, error.context);
+                		});
+
+		        }
+        	} );
+
+                timer = true;
+        }
+
+	// muutosten seuranta
+	const callback = function(mutationsList, observer) {
+	    for(let mutation of mutationsList) {
+	        if (timer && ( mutation.type === 'childList' || mutation.type === 'attributes') ) {
+		  // emme halua suorittaa validointia jokaisen pienen muutoksen
+		  // jälkeen joten ajetaan validointia viivästettynä, jotta mahdollisia
+		  // muutoksia ehtii tulla enemmän kerralla
+		    window.setTimeout(  validointi, 500 );
+                    timer = false;
+//	            console.log(mutation);
+	        }
+	    }
+	};
+
+	// luodaan varsinainen tapahtumankuuntelija 
+	const observer = new MutationObserver(callback);
+
+	// aktivoidaan kuuntelija dokumentin body-elementille
+	observer.observe(document.body, config);
+}
+window.addEventListener("load", observe);
+//]]>
+</script>
+</body>
+</html>

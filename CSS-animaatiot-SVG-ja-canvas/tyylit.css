@@ -1,0 +1,213 @@
+body {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  margin: 0px;
+  overflow: hidden;
+}
+
+img {
+  position: absolute;
+}
+
+#pingviini1 {
+  z-index: 1;
+  transform: translate(0vw, 0vh);
+  animation-name: vRata;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes vRata {
+  from {
+    transform: translate(0vw, 0vh);
+  }
+  
+  50% {
+    transform: translate(calc(50vw - 50%), calc(100vh - 100%));
+  }
+  
+  to {
+    transform: translate(calc(100vw - 100%), 0vh);
+  }
+}
+
+#pingviini2 {
+  z-index: 1;
+  transform: translate(calc(100vw - 100%), calc(100vh - 100%));
+  animation-name: vYlosalaisinRata;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes vYlosalaisinRata {
+  from {
+    transform: translate(calc(100vw - 100%), calc(100vh - 100%)); 
+  }
+  
+  50% {
+    transform: translate(calc(50vw - 50%), 0vh);
+  }
+  
+  to {
+    transform: translate(0vw, calc(100vh - 100%));
+  }
+}
+
+svg {
+  position: absolute;
+}
+
+.palkkienAnimaatio {
+  z-index: 2;
+  transform: translateX(-100%);
+  animation-name: slide;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+canvas {
+  position: absolute;
+}
+
+#pollo {
+  display: none;
+}
+
+#pollo1 {
+  z-index: 3;
+  transform: translate(0vw, 0vh);
+  animation-name: vasempaanYlakulmaan;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes vasempaanYlakulmaan {
+  from {
+    transform: translate(0vw, 0vh);
+  }
+  
+  to {
+    transform: translate(calc(50vw - 100%), calc(50vh - 100%));
+  }
+}
+
+#pollo2 {
+  z-index: 3;
+  transform: translate(calc(100vw - 100%), 0vh);
+  animation-name: oikeaanYlakulmaan;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+}
+
+@keyframes oikeaanYlakulmaan {
+  from {
+    transform: translate(calc(100vw - 100%), 0vh);
+  }
+  
+  to {
+    transform: translate(calc(50vw - 1px), calc(50vh - 100%));
+  }
+}
+
+#pollo3 {
+  z-index: 3;
+  transform: translate(0vw, calc(100vh - 100%));
+  animation-name: vasempaanAlakulmaan;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes vasempaanAlakulmaan {
+  from {
+    transform: translate(0vw, calc(100vh - 100%));
+  }
+  
+  to {
+    transform: translate(calc(50vw - 100%), calc(50vh));
+  }
+}
+
+#pollo4 {
+  z-index: 3;
+  transform: translate(calc(100vw - 100%), calc(100vh - 100%));
+  animation-name: oikeaanAlakulmaan;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes oikeaanAlakulmaan {
+  from {
+    transform: translate(calc(100vw - 100%), calc(100vh - 100%));
+  }
+  
+  to {
+    transform: translate(calc(50vw - 1px), calc(50vh));
+  }
+}
+
+#skrolleri {
+  z-index: 4;
+  padding: 0%;
+  width: 100%;
+  height: 150%;
+  transform: translateY(0vh);
+  animation-name: skrollaa;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: normal;
+}
+
+@keyframes skrollaa {
+  from {
+    transform: translateY(0vh);
+  }
+
+  to {
+    transform: translateY(calc(0vh - (100% / 3)));
+  }
+}
+
+.lainehtivaPalkki {
+  z-index: 0;
+  animation-name: aallot;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes aallot {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(calc(3 * 100%));
+  }
+}
+
+.piilossa {
+  display: none;
+}

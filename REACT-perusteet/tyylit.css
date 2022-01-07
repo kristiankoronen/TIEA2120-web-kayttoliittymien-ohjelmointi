@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.wrapper > * {
+  flex: 1 1 calc(33% - 1em);
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+input {
+  margin-right: 2em; 
+}
+
+span {
+  float: left;
+}
+
+.nimi {
+  margin-bottom: 2em;
+}
+
+.flex {
+  float: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex > label {
+  align-self: flex-end;
+}
+
+.float > input {
+  float: right;
+  min-width: 15em;
+}
